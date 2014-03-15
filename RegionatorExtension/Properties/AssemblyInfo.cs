@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Regionator")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Visual Studio extension to remove all regions from C# or VB.NET code.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("David Chipping")]
 [assembly: AssemblyProduct("Regionator")]

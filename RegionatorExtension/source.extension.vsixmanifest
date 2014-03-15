@@ -2,10 +2,11 @@
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
     <Identity Id="4e1470ea-f78f-4ea7-b793-bc940b4f9805" Version="1.0" Language="en-US" Publisher="David Chipping" />
-    <DisplayName>RegionatorExtension</DisplayName>
-    <Description xml:space="preserve">Regionator - kills all the regions your source with vengeance</Description>
+    <DisplayName>Regionator</DisplayName>
+    <Description xml:space="preserve">Regionator - removes (with vengeance) all the regions from your source. Regions often hide code that should be open, organized and readable; other times they simply get in the way with unnecessary grouping. This extension removes all regions from your current c# and vb.net source file.</Description>
     <MoreInfo>https://github.com/davidchipping/regionator</MoreInfo>
-    <Icon>Resources\Package.ico</Icon>
+    <ReleaseNotes>Initial release</ReleaseNotes>
+    <Icon>logo.png</Icon>
   </Metadata>
   <Installation InstalledByMsi="false">
     <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="11.0" />

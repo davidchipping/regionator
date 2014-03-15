@@ -20,12 +20,10 @@ namespace RegionatorExtension
 
         public static readonly Guid guidRegionatorExtensionCmdSet = new Guid(guidRegionatorExtensionCmdSetString);
     };
-
     static class PkgCmdIDList
     {
         public const uint RegionatorCommandId = 0x100;
     };
-
 
     [PackageRegistration(UseManagedResourcesOnly = true)]
     [InstalledProductRegistration("#110", "#112", "1.0", IconResourceID = 400)]
@@ -68,11 +66,11 @@ namespace RegionatorExtension
                 return;
             }
 
-            //For c#
+            //Replace regions in c#
             currentDocument.ReplacePattern(@"^[\s]*#region(.*)(\r\n?|\n)", string.Empty, vsFindOptionsValue: (int)vsFindOptions.vsFindOptionsRegularExpression);
             currentDocument.ReplacePattern(@"^[\s]*#endregion(.*)(\r\n?|\n)", string.Empty, vsFindOptionsValue: (int)vsFindOptions.vsFindOptionsRegularExpression);
 
-            //For vb.net
+            //Replace regions in vb.net
             currentDocument.ReplacePattern(@"^[\s]*#Region(.*)(\r\n?|\n)", string.Empty, vsFindOptionsValue: (int)vsFindOptions.vsFindOptionsRegularExpression);
             currentDocument.ReplacePattern(@"^[\s]*#End Region(.*)(\r\n?|\n)", string.Empty, vsFindOptionsValue: (int)vsFindOptions.vsFindOptionsRegularExpression);
         }
