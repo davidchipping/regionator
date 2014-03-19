@@ -66,13 +66,22 @@ namespace RegionatorExtension
                 return;
             }
 
-            //Replace regions in c#
-            currentDocument.ReplacePattern(@"^[\s]*#region(.*)(\r\n?|\n)", string.Empty, vsFindOptionsValue: (int)vsFindOptions.vsFindOptionsRegularExpression);
-            currentDocument.ReplacePattern(@"^[\s]*#endregion(.*)(\r\n?|\n)", string.Empty, vsFindOptionsValue: (int)vsFindOptions.vsFindOptionsRegularExpression);
+            dte.UndoContext.Open("Removed Regions");
+            try
+            {
 
-            //Replace regions in vb.net
-            currentDocument.ReplacePattern(@"^[\s]*#Region(.*)(\r\n?|\n)", string.Empty, vsFindOptionsValue: (int)vsFindOptions.vsFindOptionsRegularExpression);
-            currentDocument.ReplacePattern(@"^[\s]*#End Region(.*)(\r\n?|\n)", string.Empty, vsFindOptionsValue: (int)vsFindOptions.vsFindOptionsRegularExpression);
+                //Replace regions in c#
+                currentDocument.ReplacePattern(@"^[\s]*#region(.*)(\r\n?|\n)", string.Empty, vsFindOptionsValue: (int)vsFindOptions.vsFindOptionsRegularExpression);
+                currentDocument.ReplacePattern(@"^[\s]*#endregion(.*)(\r\n?|\n)", string.Empty, vsFindOptionsValue: (int)vsFindOptions.vsFindOptionsRegularExpression);
+
+                //Replace regions in vb.net
+                currentDocument.ReplacePattern(@"^[\s]*#Region(.*)(\r\n?|\n)", string.Empty, vsFindOptionsValue: (int)vsFindOptions.vsFindOptionsRegularExpression);
+                currentDocument.ReplacePattern(@"^[\s]*#End Region(.*)(\r\n?|\n)", string.Empty, vsFindOptionsValue: (int)vsFindOptions.vsFindOptionsRegularExpression);
+            }
+            finally
+            {
+                dte.UndoContext.Close();
+            }
         }
 
         private void ShowFeedBack(string message)
